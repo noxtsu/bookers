@@ -1,0 +1,26 @@
+<body>
+    <p =id="notice"></p>
+    <h1>Books</h1>
+      <% @books.each do |book| %>
+        <div class="blog-item">
+          <section class="blog-text">
+            <h3 class="blog-text-heading"><%= link_to book.title, book_path(book) %></h3>
+            <p class="blog-date"><%= book.created_at %></p>
+          </section>
+        </div>
+      <% end %>
+    <h2>New Book</h2>
+    
+    <%= form_with model:@book, url:'books', local:true do |f| %>
+    
+      <h4>Title</h4>
+      <%= f.text_field :title %>
+      
+      <h4>Body</h4>
+      <%= f.text_area :body %>
+      <%= f.submit 'Create Book' %>
+    <% end %>
+    
+</body>
+
+
