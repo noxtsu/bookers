@@ -1,14 +1,26 @@
 <body>
-    <p =id="notice"></p>
+    <p id="notice"></p>
     <h1>Books</h1>
       <% @books.each do |book| %>
-        <div class="blog-item">
-          <section class="blog-text">
-            <h3 class="blog-text-heading"><%= link_to book.title, book_path(book) %></h3>
-            <p class="blog-date"><%= book.created_at %></p>
-          </section>
-        </div>
+      
+      <table>
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th>Body</th>
+            <th colspan="3"></th>
+          </tr>
+        </thead>
+        
+      <span>
+        <p><%= book.title %></p>
+        <p><%= book.body %></p>
+        <%= link_to "show", book_path(book.id) %>
+      
+      </span>
       <% end %>
+      
+      </table>
     <h2>New Book</h2>
     
     <%= form_with model:@book, url:'books', local:true do |f| %>
