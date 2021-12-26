@@ -3,40 +3,41 @@
     <h1>Books</h1>
 
       
-      <table>
-        <thead>
+      <table class="book-table">
+        <thead class="book-table-header">
+          <tr class="table-row">
           <th>Title</th>
           <th>Body</th>
           <th colspan="3"></th>
+          </tr>
         </thead>
         
         <% @books.each do |book| %>
-        <tbody>
+        <tbody class="book-table-body">
+          <tr class="table-row">
           <td><%= book.title %></td>
           <td><%= book.body %></td>
           <td>
             <%= link_to "show", book_path(book.id) %>
-            <%= link_to "edit", book_path(book.id) %>
+            <%= link_to "edit", edit_book_path(book.id) %>
             <%= link_to "destroy", book_path(book.id), method: :delete, "data-confirm" => "Are you sure?" %>
           </td>
+          </tr>
         </tbody>
+   
         <% end %>
-        
-      </table>
+       </table>
       
       
     <h2>New Book</h2>
-    
-    <%= form_with model:@book, url:'books', local:true do |f| %>
-    
+    <%= form_with model:@book, local:true do |f| %>
       <h5>Title</h5>
       <div class="field"><%= f.text_field :title %></div>
-     
       <h5>Body</h5>
       <div dlass="field"><%= f.text_area :body %></div>
-      
       <div class="actions"><%= f.submit 'Create Book' %></div>
     <% end %>
+
     
 </body>
 

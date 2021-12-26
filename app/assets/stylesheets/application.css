@@ -14,11 +14,6 @@
  *= require_self
  */
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
 
 h1 {
   font-size: 2em;
@@ -38,6 +33,10 @@ body {
   margin: 33px;
 }
 
+a{
+  color: #000;
+}
+
 p, ol, ul, td {
   font-family: verdana, arial, helvetica, sans-serif;
   font-size: 13px;
@@ -55,26 +54,26 @@ h2 {
   font-weight: bold;
 }
 
-table {
-  display: table;
-  border-collapse: separate;
-  box-sizing: border-box;
-  text-indent: initial;
-  border-spacing: 2px;
-  border-color: grey;
-}
 
-thead {
+
+.book-table-header {
     display: table-header-group;
     vertical-align: middle;
     border-color: inherit;
 }
 
-tbody {
+.book-table-body {
     display: table-row-group;
     vertical-align: middle;
     border-color: inherit;
 }
+.table-row{
+    display: table-row;
+    vertical-align: inherit;
+    border-color: inherit;
+}
+
+
 form {
   display: block;
   margin-top: 0em;
